@@ -1,0 +1,44 @@
+{
+  "name": "repro-vitest-coverage",
+  "version": "1.0.0",
+  "description": "Repro for a coverage issue.",
+  "author": "Jerry Thomas <me@jerrythomas.name>",
+  "license": "MIT",
+  "main": "index.js",
+  "svelte": "src/index.js",
+  "module": "src/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint .",
+    "format": "prettier --write --plugin-search-dir=. .",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.js",
+    "./index.d.ts": "./dist/index.d.ts"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^2.2.0",
+    "@testing-library/svelte": "^3.2.2",
+    "@vitest/coverage-c8": "^0.31.0",
+    "@vitest/coverage-istanbul": "^0.31.0",
+    "@vitest/ui": "~0.31.0",
+    "eslint": "^8.40.0",
+    "eslint-config-prettier": "^8.8.0",
+    "jsdom": "^22.0.0",
+    "prettier": "^2.8.8",
+    "svelte": "^3.59.1",
+    "typescript": "~5.0.4",
+    "vite": "^4.3.5",
+    "vitest": "~0.31.0"
+  }
+}
